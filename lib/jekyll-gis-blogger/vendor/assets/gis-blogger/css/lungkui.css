@@ -1,0 +1,139 @@
+:root {
+  --lk-accent: #e4572e;
+  --lk-panel-bg: #ffffff;
+  --lk-text: #111111;
+  --lk-font: Georgia, serif;
+  --lk-panel-width: 360px;
+}
+.lk-root { position: relative; }
+
+/* ponytail: fixed map fills the viewport for full-page stories; an embedded
+   (non-full-page) mount needs a sticky wrapper instead — add when needed. */
+.lk-map { position: fixed; inset: 0; }
+.lk-map .maplibregl-map { position: absolute; inset: 0; }
+.lk-slides { position: relative; z-index: 1; }
+
+/* Scroll mode: panels flow over a fixed map. Side padding keeps panels
+   clear of the edge arrows. */
+.lk-slide {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+.lk-slide--left   { justify-content: flex-start; }
+.lk-slide--right  { justify-content: flex-end; }
+.lk-slide--center { justify-content: center; }
+.lk-slide--full   { justify-content: center; }
+
+.lk-slide__panel {
+  pointer-events: auto;
+  width: var(--lk-panel-width);
+  max-width: 90vw;
+  padding: 1.5rem 1.75rem;
+  background: var(--lk-panel-bg);
+  color: var(--lk-text);
+  font-family: var(--lk-font);
+  border-radius: 6px;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.22);
+  line-height: 1.6;
+}
+.lk-slide--full .lk-slide__panel { width: 620px; text-align: center; }
+.lk-slide__panel h2 {
+  margin: 0 0 0.6rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--lk-accent);
+}
+.lk-slide__panel p { margin: 0.6rem 0; }
+.lk-slide__panel a { color: var(--lk-accent); }
+.lk-media { margin: 1rem 0 0; }
+.lk-media img { width: 100%; border-radius: 4px; }
+.lk-media figcaption { font-size: 0.8rem; opacity: 0.75; margin-top: 0.35rem; }
+
+/* Deck mode: one active panel at a time */
+.lk-deck .lk-slide { display: none; }
+.lk-deck .lk-slide.is-active { display: flex; }
+
+/* Edge navigation arrows (StoryMapJS-style dark tabs) */
+.lk-controls {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 3;
+}
+.lk-arrow {
+  pointer-events: auto;
+  width: 54px;
+  height: 92px;
+  border: none;
+  background: rgba(20, 20, 20, 0.55);
+  color: #fff;
+  font-size: 1.9rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.lk-arrow--prev { border-radius: 0 6px 6px 0; }
+.lk-arrow--next { border-radius: 6px 0 0 6px; }
+.lk-arrow:hover { background: rgba(20, 20, 20, 0.8); }
+
+/* Top toolbar */
+.lk-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  z-index: 4;
+}
+.lk-toolbar__btn {
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(20, 20, 20, 0.78);
+  color: #fff;
+  font: 0.85rem/1 system-ui, sans-serif;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+}
+.lk-toolbar__btn:hover,
+.lk-toolbar__btn.is-active { background: var(--lk-accent); }
+
+/* Mini-map overview inset */
+.lk-overview {
+  position: fixed;
+  top: 44px;
+  left: 12px;
+  width: 220px;
+  height: 150px;
+  border: 3px solid #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 4;
+}
+.lk-overview .maplibregl-map { position: absolute; inset: 0; }
+
+/* ─────────────────────────── embedded mode ───────────────────────────
+   Full-page stories position the map + chrome against the viewport (fixed).
+   When embedding inside a fixed-height box (e.g. a blog post), add .lk-embed
+   on the root: everything re-anchors to the box instead of the viewport. */
+.lk-embed { overflow: hidden; }
+.lk-embed .lk-map { position: absolute; }
+.lk-embed .lk-slides { position: absolute; inset: 0; pointer-events: none; }
+.lk-embed .lk-controls,
+.lk-embed .lk-toolbar,
+.lk-embed .lk-overview { position: absolute; }
+/* Deck panels fill the box height (not 100vh). */
+.lk-embed.lk-deck .lk-slide { min-height: 100%; height: 100%; }
+/* Scroll mode inside a box scrolls the slides layer, not the page. */
+.lk-embed:not(.lk-deck) .lk-slides { overflow-y: auto; pointer-events: auto; }
+.lk-embed:not(.lk-deck) .lk-slide { min-height: 100%; }

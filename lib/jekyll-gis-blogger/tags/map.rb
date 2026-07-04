@@ -91,7 +91,9 @@ module Jekyll
         end
 
         def escape_js(text)
-          text.to_s.gsub("\\", "\\\\").gsub("'", "\\'").gsub("\n", " ")
+          # Block form avoids gsub's replacement-string backreferences
+          # (a literal "\\'" replacement means post-match, not an escaped quote).
+          text.to_s.gsub(/[\\'\r\n]/) { |c| c == "\n" || c == "\r" ? " " : "\\#{c}" }
         end
       end
     end

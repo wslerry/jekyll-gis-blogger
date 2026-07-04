@@ -8,6 +8,7 @@ module Jekyll
 end
 
 require_relative "jekyll-gis-blogger/utils"
+require_relative "jekyll-gis-blogger/assets"
 
 require_relative "jekyll-gis-blogger/tags/storymap"
 require_relative "jekyll-gis-blogger/tags/lungkui"

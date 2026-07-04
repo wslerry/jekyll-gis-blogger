@@ -85,10 +85,11 @@ Options: `height="600px" width="80%" options='{"calculate_zoom":false}'`
 | `overview` | `1`/`true` for intro/title slide |
 | `lat`, `lon` | CSV only; GeoJSON uses Point geometry |
 
-#### Required assets
+#### Bundled assets
 
-- `assets/css/storymap.css`
-- `assets/js/storymap-min.js`
+Shipped with the gem and copied into your build automatically at
+`assets/gis-blogger/css/storymap.css` and `assets/gis-blogger/js/storymap-min.js`.
+Nothing to copy by hand.
 
 ### `{% lungkui %}` — lungkui.js MapLibre scrollytelling
 
@@ -112,11 +113,11 @@ Mode `deck` (default) uses arrow keys/click — no page scroll needed. Mode `scr
 
 Same GeoJSON field names as storymap (`headline`, `text`, `media`, `caption`, `credit`, `zoom`, `order`, `overview`). Coordinates from Point geometry.
 
-#### Required assets
+#### Bundled assets
 
-- `assets/js/lungkui.js`
-- `assets/css/lungkui.css`
-- MapLibre GL JS loaded from CDN automatically
+`assets/gis-blogger/js/lungkui.js` and `assets/gis-blogger/css/lungkui.css` ship
+with the gem and are copied into your build automatically. MapLibre GL JS is
+loaded from CDN. Nothing to copy by hand.
 
 ### `{% gpx_track %}` — GPX track + elevation profile
 

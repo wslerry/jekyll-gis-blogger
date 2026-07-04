@@ -42,14 +42,16 @@ module Jekyll
           div_id = "lungkui-map-#{count}"
 
           config_js = build_config_arg(site, baseurl)
-          assets    = inject_assets_once(page, baseurl)
+          return warn_html("needs one of: geojson= | config=") unless config_js
+
+          assets = inject_assets_once(page, baseurl)
 
           [
             assets,
             %(<div id="#{div_id}" class="lk-root lk-embed" ) +
               %(style="position:relative;width:#{width};height:#{height};"></div>),
             %(<script type="module">),
-            %(import { Lungkui } from '#{baseurl}/assets/js/lungkui.js';),
+            %(import { Lungkui } from '#{baseurl}/assets/gis-blogger/js/lungkui.js';),
             %(new Lungkui('##{div_id}', #{config_js});),
             %(</script>)
           ].join("\n")
@@ -62,9 +64,12 @@ module Jekyll
             inline(parse_config(site, @attrs["config"]))
           elsif @attrs["geojson"]
             inline(build_config(site, baseurl))
-          else
-            raise ArgumentError, "{% lungkui %} needs one of: geojson= | config="
           end
+        end
+
+        def warn_html(reason)
+          Jekyll.logger.warn "lungkui:", reason
+          "<!-- lungkui: #{reason} -->"
         end
 
         def build_config(site, baseurl)
@@ -159,7 +164,7 @@ module Jekyll
           page["lungkui_assets_injected"] = true
           [
             %(<link rel="stylesheet" href="#{MAPLIBRE_CSS}">),
-            %(<link rel="stylesheet" href="#{baseurl}/assets/css/lungkui.css">),
+            %(<link rel="stylesheet" href="#{baseurl}/assets/gis-blogger/css/lungkui.css">),
             %(<script src="#{MAPLIBRE_JS}"></script>)
           ].join("\n")
         end

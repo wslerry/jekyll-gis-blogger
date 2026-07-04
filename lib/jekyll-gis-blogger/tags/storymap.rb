@@ -33,7 +33,9 @@ module Jekyll
           js_var = "storymapMap#{count}"
 
           data_arg = build_data_arg(site, baseurl)
-          assets   = inject_assets_once(page, baseurl)
+          return warn_html("needs one of: data= | geojson= | csv=") unless data_arg
+
+          assets = inject_assets_once(page, baseurl)
 
           [
             assets,
@@ -55,9 +57,12 @@ module Jekyll
           elsif @attrs["data"]
             url = absolute?(@attrs["data"]) ? @attrs["data"] : "#{baseurl}#{@attrs['data']}"
             "'#{url}'"
-          else
-            raise ArgumentError, "{% storymap %} needs one of: data= | geojson= | csv="
           end
+        end
+
+        def warn_html(reason)
+          Jekyll.logger.warn "storymap:", reason
+          "<!-- storymap: #{reason} -->"
         end
 
         def build_object(slides)
@@ -119,8 +124,8 @@ module Jekyll
 
           page["storymap_assets_injected"] = true
           [
-            "<link rel=\"stylesheet\" href=\"#{baseurl}/assets/css/storymap.css\">",
-            "<script type=\"text/javascript\" src=\"#{baseurl}/assets/js/storymap-min.js\"></script>"
+            "<link rel=\"stylesheet\" href=\"#{baseurl}/assets/gis-blogger/css/storymap.css\">",
+            "<script type=\"text/javascript\" src=\"#{baseurl}/assets/gis-blogger/js/storymap-min.js\"></script>"
           ].join("\n")
         end
       end
