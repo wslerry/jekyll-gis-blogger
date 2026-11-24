@@ -21,7 +21,8 @@
     "maxWidth": 12,
     "unit": "t",
     "title": "Coffee moved"
-   }
+   },
+   "tooltip": "{from} → {to}<br><strong>{tonnes} t</strong>"
   },
   {
    "id": "sites",

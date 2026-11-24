@@ -20,7 +20,8 @@
     "property": "species",
     "palette": "set2",
     "title": "Sightings (dummy)"
-   }
+   },
+   "tooltip": "{species}"
   }
  ],
  "slides": [

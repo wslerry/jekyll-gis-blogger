@@ -82,7 +82,8 @@ out('coffee-story.json', {
   mode: 'deck', markers: 'none', map: { center: [113, 3], zoom: 6 },
   layers: [
     { id: 'flows', type: 'line', source: { geojson: '/assets/data/coffee-flows.geojson' },
-      style: { kind: 'flows', property: 'tonnes', maxWidth: 12, unit: 't', title: 'Coffee moved' } },
+      style: { kind: 'flows', property: 'tonnes', maxWidth: 12, unit: 't', title: 'Coffee moved' },
+      tooltip: '{from} → {to}<br><strong>{tonnes} t</strong>' },
     { id: 'sites', type: 'point', source: { geojson: '/assets/data/coffee-sites.geojson' },
       style: { kind: 'categories', property: 'role', palette: 'dark2', order: ['farm', 'roastery', 'cafe'],
         labels: { farm: 'Farm', roastery: 'Roastery', cafe: 'Cafe' }, title: 'Who' } }
@@ -129,7 +130,7 @@ out('sightings.geojson', fc(sightings));
 out('categories-story.json', {
   mode: 'deck', markers: 'none', map: { center: [112.5, 2.2], zoom: 7 },
   layers: [{ id: 'sightings', type: 'point', source: { geojson: '/assets/data/sightings.geojson' },
-    style: { kind: 'categories', property: 'species', palette: 'set2', title: 'Sightings (dummy)' } }],
+    style: { kind: 'categories', property: 'species', palette: 'set2', title: 'Sightings (dummy)' }, tooltip: '{species}' }],
   slides: [
     { position: 'full', kicker: 'Categories', title: 'Who was seen where', camera: { fit: { layer: 'sightings' } }, legend: ['sightings'],
       html: '<p>Kinds, not amounts: a qualitative palette where no colour looks bigger than another.</p>' },
@@ -158,7 +159,7 @@ for (let i = 0; i < 40; i++) { x += 0.004 + rnd() * 0.004; y += (rnd() - 0.35) *
 out('hike.geojson', fc([line({ name: 'Ridge walk' }, trk)]));
 out('track-story.json', {
   mode: 'deck', markers: 'none', map: { basemap: 'opentopo', center: [115.5, 3.75], zoom: 11 },
-  layers: [{ id: 'hike', type: 'line', source: { geojson: '/assets/data/hike.geojson' }, style: { kind: 'track', width: 3, legendLabel: 'Ridge walk' } }],
+  layers: [{ id: 'hike', type: 'line', source: { geojson: '/assets/data/hike.geojson' }, style: { kind: 'track', width: 3, legendLabel: 'Ridge walk' }, tooltip: '{name}' }],
   slides: [
     { position: 'full', kicker: 'Track', title: 'A day on the ridge', camera: { fit: { layer: 'hike' } }, legend: ['hike'],
       html: '<p>A recorded path as a cased line: readable on any basemap, here a topographic one.</p>' }

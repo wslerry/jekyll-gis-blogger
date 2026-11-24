@@ -20,7 +20,8 @@
     "kind": "track",
     "width": 3,
     "legendLabel": "Ridge walk"
-   }
+   },
+   "tooltip": "{name}"
   }
  ],
  "slides": [

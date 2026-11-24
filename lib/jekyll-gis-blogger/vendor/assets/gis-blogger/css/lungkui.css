@@ -285,3 +285,15 @@
 .lk-stop--photo.is-visited { border-color: #fff; filter: grayscale(0.6); }
 .lk-stop--photo.is-active { transform: scale(1.6); border-color: var(--lk-accent, #c8462a); filter: none; }
 .lk-stop--photo.is-active:hover { transform: scale(1.6); }
+
+/* Tooltips */
+.lk-root .lk-tooltip .maplibregl-popup-content {
+  padding: 0.5rem 0.7rem;
+  background: var(--lk-panel-bg, #fff);
+  color: var(--lk-text, #1d1d1b);
+  border: 1px solid var(--lk-border, rgba(0, 0, 0, 0.12));
+  border-radius: var(--lk-radius, 6px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  font: 0.82rem/1.4 var(--lk-ui-font, system-ui, sans-serif);
+}
+.lk-root .lk-tooltip .maplibregl-popup-tip { display: none; }
