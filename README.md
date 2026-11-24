@@ -155,7 +155,7 @@ Same GeoJSON field names as storymap (`headline`, `text`, `media`, `caption`, `c
 
 #### Bundled assets
 
-`assets/gis-blogger/js/lungkui.js` and `assets/gis-blogger/css/lungkui.css` ship
+Bundled lungkui.js: **0.2.0** (BSD-3-Clause). `assets/gis-blogger/js/lungkui.js` and `assets/gis-blogger/css/lungkui.css` ship
 with the gem and are copied into your build automatically. MapLibre GL JS is
 loaded from CDN. Nothing to copy by hand.
 
