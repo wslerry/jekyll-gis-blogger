@@ -29,14 +29,18 @@ const worst = districts.filter((d) => d.properties.risk != null).sort((a, b) => 
 out('choropleth-story.json', {
   mode: 'deck', markers: 'none', map: { center: [113.2, 2.4], zoom: 7 },
   layers: [{ id: 'districts', type: 'polygon', source: { geojson: '/assets/data/districts.geojson' },
-    style: { kind: 'choropleth', property: 'risk', classes: 5, method: 'jenks', palette: 'blues', unit: '%', title: 'Flood risk' } }],
+    style: { kind: 'choropleth', property: 'risk', classes: 5, method: 'jenks', palette: 'blues', unit: '%', title: 'Flood risk' } },
+    { id: 'towns', type: 'point', source: { geojson: '/assets/data/towns.geojson' },
+      style: { kind: 'proportional', property: 'pop', maxRadius: 28, title: 'Population (dummy)' } }],
   slides: [
-    { position: 'full', kicker: 'Choropleth', title: 'Flood risk by district', camera: { fit: { layer: 'districts' } }, legend: ['districts'],
+    { position: 'full', kicker: 'Choropleth', title: 'Flood risk by district', camera: { fit: { layer: 'districts' } }, legend: ['districts'], hide: ['towns'],
       html: '<p>Rates per area belong in a <strong>choropleth</strong>: classed colours (natural breaks here), light to dark, grey for no data. Never raw totals, or big districts look worse just for being big.</p>' },
     { kicker: 'Hotspot', title: 'The riskiest district', camera: { fit: { layer: 'districts', where: { id: worst } } }, legend: ['districts'],
       highlight: { layer: 'districts', filter: ['==', ['get', 'id'], worst] },
       chart: { title: 'Five riskiest districts', layer: 'districts', property: 'risk', top: 5, unit: '%', highlight: districts.find((d) => d.properties.id === worst).properties.name, source: 'made-up data' },
-      html: '<p>Filtered to one district. The classes stay the same, so the colour keeps its meaning.</p>' }
+      html: '<p>Filtered to one district. The classes stay the same, so the colour keeps its meaning.</p>', hide: ['towns'] },
+    { kicker: 'Who lives there', title: 'Now the towns', camera: { fit: { layer: 'towns' } }, legend: ['towns'], show: ['towns'], hide: ['districts'],
+      html: '<p>The districts fade out and the towns fade in: <code>show</code> and <code>hide</code> with a transition.</p>' }
   ]
 });
 

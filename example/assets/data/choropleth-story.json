@@ -24,6 +24,19 @@
     "unit": "%",
     "title": "Flood risk"
    }
+  },
+  {
+   "id": "towns",
+   "type": "point",
+   "source": {
+    "geojson": "/assets/data/towns.geojson"
+   },
+   "style": {
+    "kind": "proportional",
+    "property": "pop",
+    "maxRadius": 28,
+    "title": "Population (dummy)"
+   }
   }
  ],
  "slides": [
@@ -38,6 +51,9 @@
    },
    "legend": [
     "districts"
+   ],
+   "hide": [
+    "towns"
    ],
    "html": "<p>Rates per area belong in a <strong>choropleth</strong>: classed colours (natural breaks here), light to dark, grey for no data. Never raw totals, or big districts look worse just for being big.</p>"
   },
@@ -75,7 +91,29 @@
     "highlight": "District A5",
     "source": "made-up data"
    },
-   "html": "<p>Filtered to one district. The classes stay the same, so the colour keeps its meaning.</p>"
+   "html": "<p>Filtered to one district. The classes stay the same, so the colour keeps its meaning.</p>",
+   "hide": [
+    "towns"
+   ]
+  },
+  {
+   "kicker": "Who lives there",
+   "title": "Now the towns",
+   "camera": {
+    "fit": {
+     "layer": "towns"
+    }
+   },
+   "legend": [
+    "towns"
+   ],
+   "show": [
+    "towns"
+   ],
+   "hide": [
+    "districts"
+   ],
+   "html": "<p>The districts fade out and the towns fade in: <code>show</code> and <code>hide</code> with a transition.</p>"
   }
  ]
 }
