@@ -130,6 +130,23 @@ Data layers in a `config=` JSON can use lungkui thematic styles (choropleth,
 proportional symbols, categories, heatmap, flows, 3D extrusion, track) with
 auto-legends; see the lungkui README.
 
+**Photo story (GPX + geotagged photos):**
+
+```liquid
+{% lungkui gpx="/assets/trip/route.gpx" photos="/assets/trip/photos/" title="Down the river" %}
+```
+
+Each JPEG in `photos=` becomes a slide, in the order it was taken. Its position comes
+from the photo's EXIF GPS; without GPS, its EXIF time is matched to the GPX track's
+timestamps (`time_offset="-3600"` corrects a camera clock that was an hour fast). The
+caption is the EXIF image description, else the file name. The map shows thumbnail
+markers and colours the track up to each photo. Options: `title`, `text` (cover HTML),
+`photo_zoom`, `time_offset`, plus `panel`, `theme`, `basemap`, `accent`, `height`.
+
+Privacy: published JPEGs keep their EXIF, GPS included. Strip it from photos of
+sensitive places (homes, nests, rare species) before publishing; the story only needs
+the GPX and the time.
+
 Try every variant in the bundled test site (12 example stories): see `example/README.md`.
 
 #### Authoring schema

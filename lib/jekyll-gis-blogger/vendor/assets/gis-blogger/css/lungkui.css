@@ -278,3 +278,10 @@
 .lk-swatch--ramp { width: 90px; height: 10px; border-radius: 2px; }
 .lk-swatch--point { flex: none; }
 .lk-legend li .lk-swatch--point[style*="width"] { opacity: 0.75; }
+
+/* Photo markers: round thumbnails, the active one larger with an accent ring. */
+.lk-stop--photo { width: 34px; height: 34px; padding: 0; border-width: 2px; border-color: #fff; overflow: hidden; background: var(--lk-panel-bg, #fff); }
+.lk-photo { display: block; width: 100%; height: 100%; background-size: cover; background-position: center; border-radius: 50%; }
+.lk-stop--photo.is-visited { border-color: #fff; filter: grayscale(0.6); }
+.lk-stop--photo.is-active { transform: scale(1.6); border-color: var(--lk-accent, #c8462a); filter: none; }
+.lk-stop--photo.is-active:hover { transform: scale(1.6); }

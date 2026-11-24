@@ -9,6 +9,7 @@ end
 
 require_relative "jekyll-gis-blogger/utils"
 require_relative "jekyll-gis-blogger/assets"
+require_relative "jekyll-gis-blogger/photo_journey"
 
 require_relative "jekyll-gis-blogger/tags/storymap"
 require_relative "jekyll-gis-blogger/tags/lungkui"

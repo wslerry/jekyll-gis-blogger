@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="dummy" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk><name>Down the river (dummy)</name><trkseg>
+      <trkpt lat="0.00000" lon="25.00000"><time>2026-03-02T06:00:00Z</time></trkpt>
+      <trkpt lat="0.00000" lon="26.00000"><time>2026-03-02T07:00:00Z</time></trkpt>
+      <trkpt lat="0.00000" lon="27.00000"><time>2026-03-02T08:00:00Z</time></trkpt>
+  </trkseg></trk>
+</gpx>
