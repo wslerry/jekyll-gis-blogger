@@ -1,7 +1,9 @@
 # Example site
 
-Dummy stories for trying the gem's tags: 5 story modes and 7 thematic map styles.
-The data is made up; `_tools/make_data.mjs` regenerates it (`node _tools/make_data.mjs`).
+Dummy stories for trying the gem's tags: 5 story modes, 7 thematic map styles and a
+photo journey (GPX + geotagged photos).
+The data is made up. `node _tools/make_data.mjs` regenerates the map data and
+`python _tools/make_photos.py` (needs Pillow) the river GPX and photos.
 
 From this folder, with Docker:
 
