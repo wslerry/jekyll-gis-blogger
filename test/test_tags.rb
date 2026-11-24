@@ -3,6 +3,8 @@
 require "minitest/autorun"
 require "jekyll"
 require "jekyll-gis-blogger"
+require "tmpdir"
+require "json"
 
 class TestTagsRegistered < Minitest::Test
   TAGS = {
@@ -173,5 +175,86 @@ class TestVendoredAssets < Minitest::Test
         assert File.file?(path), "vendored asset missing: #{path}"
       end
     end
+  end
+end
+
+class TestLungkuiConfig < Minitest::Test
+  GEOJSON = {
+    "type" => "FeatureCollection",
+    "features" => [
+      { "type" => "Feature", "geometry" => { "type" => "Point", "coordinates" => [113.9, 4.4] },
+        "properties" => { "overview" => 1, "order" => 0, "headline" => "Trail" } },
+      { "type" => "Feature", "geometry" => { "type" => "Point", "coordinates" => [110.3, 1.5] },
+        "properties" => { "order" => 1, "headline" => "Kuching", "zoom" => 8 } },
+      { "type" => "Feature", "geometry" => { "type" => "Point", "coordinates" => [111.8, 2.3] },
+        "properties" => { "order" => 2, "headline" => "Sibu" } }
+    ]
+  }.freeze
+
+  def config_for(markup)
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "trail.geojson"), JSON.generate(GEOJSON))
+      site = Struct.new(:source, :config) do
+        def in_source_dir(path) = File.join(source, path)
+      end.new(dir, { "baseurl" => "" })
+      tag = Liquid::Template.parse(%({% lungkui geojson="/trail.geojson" #{markup} %})).root.nodelist.first
+      tag.send(:build_config, site, "")
+    end
+  end
+
+  def test_defaults_follow_the_v0_2_story_model
+    cfg = config_for("")
+    assert_equal "deck", cfg["mode"]
+    assert_equal true, cfg["route"]
+    assert_equal [], cfg["layers"], "stops are drawn by lungkui itself, no circle layer"
+    refute cfg["map"].key?("basemap"), "no basemap given: lungkui picks its light/dark default"
+    overview, kuching, sibu = cfg["slides"]
+    assert_equal "full", overview["position"]
+    assert_equal true, overview["camera"]["fit"]
+    assert_equal "left", kuching["position"]
+    assert_equal 8.0, kuching["camera"]["zoom"]
+    assert_equal 9, sibu["camera"]["zoom"]
+    assert_equal 0, sibu["camera"]["pitch"].to_i, "flat map unless pitch= is set"
+  end
+
+  def test_attributes_map_to_config
+    cfg = config_for('basemap="opentopo" theme="paper" panel="right" route="false" markers="dot" pitch="30" accent="#123456"')
+    assert_equal "opentopo", cfg["map"]["basemap"]
+    assert_equal({ "preset" => "paper", "accent" => "#123456" }, cfg["theme"])
+    assert_equal "right", cfg["panelSide"]
+    assert_equal false, cfg["route"]
+    assert_equal "dot", cfg["markers"]
+    assert_equal 30.0, cfg["slides"][1]["camera"]["pitch"]
+    assert_equal "right", cfg["slides"][1]["position"]
+  end
+
+  def test_basemap_url_becomes_an_xyz_source
+    cfg = config_for('basemap="https://t.example/{z}/{x}/{y}.png"')
+    assert_equal "xyz", cfg["map"]["basemap"]["type"]
+    assert_equal "https://t.example/{z}/{x}/{y}.png", cfg["map"]["basemap"]["url"]
+  end
+end
+
+class TestLungkuiRender < Minitest::Test
+  def render(markup)
+    Dir.mktmpdir do |dir|
+      File.write(File.join(dir, "trail.geojson"), JSON.generate(TestLungkuiConfig::GEOJSON))
+      site = Struct.new(:source, :config) do
+        def in_source_dir(path) = File.join(source, path)
+      end.new(dir, { "baseurl" => "" })
+      ctx = Liquid::Context.new({}, {}, { site: site, page: {} })
+      Liquid::Template.parse(%({% lungkui geojson="/trail.geojson" #{markup} %})).render(ctx)
+    end
+  end
+
+  def test_embed_is_a_fixed_height_box
+    html = render('height="500px"')
+    assert_match(/class="lk-root lk-embed"[^>]*height:500px/, html)
+  end
+
+  def test_fullpage_story_has_no_box
+    html = render('fullpage="true" mode="scroll"')
+    assert_match(/<div id="lungkui-map-0" class="lk-root"><\/div>/, html)
+    refute_match(/lk-embed/, html)
   end
 end

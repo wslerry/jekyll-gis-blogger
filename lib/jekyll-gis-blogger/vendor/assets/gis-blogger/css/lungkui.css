@@ -1,139 +1,275 @@
-:root {
-  --lk-accent: #e4572e;
-  --lk-panel-bg: #ffffff;
-  --lk-text: #111111;
-  --lk-font: Georgia, serif;
-  --lk-panel-width: 360px;
-}
-.lk-root { position: relative; }
+/* lungkui.css — layout and look for lungkui.js stories.
+   Every colour, font and size is a --lk-* variable with a default at the point of
+   use, so a host page can theme a story by setting variables on .lk-root (or any
+   ancestor) without touching this file. Theme keys passed in JS set the same
+   variables inline. */
 
-/* ponytail: fixed map fills the viewport for full-page stories; an embedded
-   (non-full-page) mount needs a sticky wrapper instead — add when needed. */
-.lk-map { position: fixed; inset: 0; }
-.lk-map .maplibregl-map { position: absolute; inset: 0; }
+.lk-root {
+  --lk-gap: 16px;
+  --lk-pager-h: 46px;
+  --lk-pw: min(var(--lk-panel-width, 380px), 44%);
+  position: relative;
+  color: var(--lk-text, #1d1d1b);
+  font-family: var(--lk-font, Georgia, "Times New Roman", serif);
+  outline: none;
+}
+.lk-root:focus-visible { box-shadow: 0 0 0 3px var(--lk-accent, #c8462a); }
+.lk-root *, .lk-root *::before, .lk-root *::after { box-sizing: border-box; }
+
+.lk-map .maplibregl-map, .lk-map.maplibregl-map { font-family: var(--lk-ui-font, system-ui, sans-serif); }
 .lk-slides { position: relative; z-index: 1; }
 
-/* Scroll mode: panels flow over a fixed map. Side padding keeps panels
-   clear of the edge arrows. */
-.lk-slide {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 0 80px;
-  box-sizing: border-box;
-  pointer-events: none;
-}
-.lk-slide--left   { justify-content: flex-start; }
-.lk-slide--right  { justify-content: flex-end; }
-.lk-slide--center { justify-content: center; }
-.lk-slide--full   { justify-content: center; }
+/* ───────────────────────── panel (all modes) ───────────────────────── */
 
 .lk-slide__panel {
   pointer-events: auto;
-  width: var(--lk-panel-width);
-  max-width: 90vw;
-  padding: 1.5rem 1.75rem;
-  background: var(--lk-panel-bg);
-  color: var(--lk-text);
-  font-family: var(--lk-font);
-  border-radius: 6px;
-  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.22);
+  background: var(--lk-panel-bg, #fff);
+  color: var(--lk-text, #1d1d1b);
+  border: 1px solid var(--lk-border, rgba(0, 0, 0, 0.12));
+  border-radius: var(--lk-radius, 6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18), 0 2px 6px rgba(0, 0, 0, 0.08);
   line-height: 1.6;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
-.lk-slide--full .lk-slide__panel { width: 620px; text-align: center; }
+.lk-slide__body {
+  padding: 1.35rem 1.5rem 1.4rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+.lk-kicker {
+  margin: 0 0 0.35rem;
+  font: 600 0.7rem/1.2 var(--lk-ui-font, system-ui, sans-serif);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lk-accent, #c8462a);
+}
 .lk-slide__panel h2 {
-  margin: 0 0 0.6rem;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.7rem;
+  margin: 0 0 0.7rem;
+  font-family: var(--lk-heading-font, inherit);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.65rem);
   font-weight: 700;
-  line-height: 1.15;
-  color: var(--lk-accent);
+  line-height: 1.18;
+  color: var(--lk-text, #1d1d1b);
 }
-.lk-slide__panel p { margin: 0.6rem 0; }
-.lk-slide__panel a { color: var(--lk-accent); }
-.lk-media { margin: 1rem 0 0; }
-.lk-media img { width: 100%; border-radius: 4px; }
-.lk-media figcaption { font-size: 0.8rem; opacity: 0.75; margin-top: 0.35rem; }
+.lk-slide__panel p { margin: 0.55rem 0; }
+.lk-slide__panel a { color: var(--lk-accent, #c8462a); text-underline-offset: 3px; }
+.lk-media { margin: 0 0 0.9rem; }
+.lk-media img { display: block; width: 100%; height: auto; max-height: 40vh; object-fit: cover; border-radius: calc(var(--lk-radius, 6px) * 0.6); }
+.lk-media figcaption, .lk-credit {
+  font: 0.78rem/1.4 var(--lk-ui-font, system-ui, sans-serif);
+  color: var(--lk-muted, #6b6860);
+  margin-top: 0.35rem;
+}
+.lk-slide--center .lk-slide__panel, .lk-slide--full .lk-slide__panel { text-align: left; }
 
-/* Deck mode: one active panel at a time */
+/* ───────────────────────────── chrome ───────────────────────────── */
+
+.lk-tools {
+  position: absolute;
+  top: var(--lk-gap);
+  right: var(--lk-gap);
+  z-index: 4;
+  display: flex;
+  gap: 6px;
+}
+.lk-root[data-side="right"].lk-layout-side .lk-tools { right: auto; left: var(--lk-gap); }
+.lk-tool, .lk-pager__btn {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--lk-border, rgba(0, 0, 0, 0.12));
+  border-radius: var(--lk-radius, 6px);
+  background: var(--lk-panel-bg, #fff);
+  color: var(--lk-text, #1d1d1b);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+.lk-tool svg, .lk-pager__btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lk-tool:hover, .lk-tool.is-active, .lk-pager__btn:not(:disabled):hover { background: var(--lk-accent, #c8462a); color: #fff; border-color: transparent; }
+.lk-tool:focus-visible, .lk-pager__btn:focus-visible, .lk-stop:focus-visible { outline: 2px solid var(--lk-accent, #c8462a); outline-offset: 2px; }
+.lk-pager__btn:disabled { opacity: 0.35; cursor: default; box-shadow: none; }
+
+.lk-pager {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: var(--lk-pager-h);
+  padding: 0 6px;
+  background: var(--lk-panel-bg, #fff);
+  border: 1px solid var(--lk-border, rgba(0, 0, 0, 0.12));
+  border-top: 0;
+  font: 600 0.75rem/1 var(--lk-ui-font, system-ui, sans-serif);
+  color: var(--lk-muted, #6b6860);
+  letter-spacing: 0.06em;
+}
+.lk-pager__btn { width: 34px; height: 34px; box-shadow: none; border-color: transparent; background: transparent; }
+.lk-pager__count { min-width: 3.2em; text-align: center; font-variant-numeric: tabular-nums; }
+.lk-pager__bar { flex: 1; height: 3px; background: var(--lk-border, rgba(0, 0, 0, 0.12)); border-radius: 2px; overflow: hidden; }
+.lk-pager__bar > span { display: block; height: 100%; width: 0; background: var(--lk-accent, #c8462a); transition: width 0.4s ease; }
+
+/* Locator inset */
+.lk-overview {
+  position: absolute;
+  top: calc(var(--lk-gap) + 44px);
+  right: var(--lk-gap);
+  z-index: 4;
+  width: min(220px, 40%);
+  aspect-ratio: 4 / 3;
+  border: 2px solid var(--lk-panel-bg, #fff);
+  border-radius: var(--lk-radius, 6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+.lk-overview[hidden] { display: none; }
+.lk-root[data-side="right"].lk-layout-side .lk-overview { right: auto; left: var(--lk-gap); }
+.lk-overview .maplibregl-map, .lk-overview.maplibregl-map { position: absolute; inset: 0; }
+
+/* Stop markers */
+.lk-stop {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 2px solid var(--lk-accent, #c8462a);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--lk-accent, #c8462a);
+  font: 700 12px/1 var(--lk-ui-font, system-ui, sans-serif);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+.lk-stop--dot { width: 13px; height: 13px; border-width: 2.5px; }
+.lk-stop.is-visited { border-color: var(--lk-muted, #6b6860); color: var(--lk-muted, #6b6860); }
+.lk-stop.is-active { background: var(--lk-accent, #c8462a); color: #fff; border-color: #fff; transform: scale(1.3); z-index: 2; box-shadow: 0 0 0 4px color-mix(in srgb, var(--lk-accent, #c8462a) 30%, transparent), 0 2px 8px rgba(0, 0, 0, 0.4); }
+.lk-stop:hover { transform: scale(1.18); }
+.lk-stop.is-active:hover { transform: scale(1.3); }
+
+/* MapLibre controls: quieter, themed */
+.lk-root .maplibregl-ctrl-attrib, .lk-root .maplibregl-ctrl-scale {
+  font: 11px/1.4 var(--lk-ui-font, system-ui, sans-serif);
+}
+.lk-root .maplibregl-ctrl-scale { background: rgba(255, 255, 255, 0.8); border-color: #333; color: #333; }
+
+/* ─────────────────── deck mode (one panel at a time) ─────────────────── */
+
+.lk-deck { overflow: hidden; }
+.lk-deck .lk-map { position: absolute; inset: 0; }
+.lk-deck .lk-slides { position: absolute; inset: 0; pointer-events: none; }
 .lk-deck .lk-slide { display: none; }
-.lk-deck .lk-slide.is-active { display: flex; }
+.lk-deck .lk-slide.is-active { display: block; }
+.lk-deck .lk-slide.is-active .lk-slide__panel { animation: lk-in 0.35s ease both; }
+@keyframes lk-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
-/* Edge navigation arrows (StoryMapJS-style dark tabs) */
-.lk-controls {
-  position: fixed;
-  top: 50%;
+/* Side layout: panel + pager docked to one side, as one card. */
+.lk-deck.lk-layout-side .lk-slide__panel,
+.lk-deck.lk-layout-side .lk-pager {
+  position: absolute;
+  left: var(--lk-gap);
+  width: var(--lk-pw);
+}
+.lk-deck.lk-layout-side .lk-slide__panel {
+  bottom: calc(var(--lk-gap) + var(--lk-pager-h));
+  max-height: calc(100% - var(--lk-gap) * 2 - var(--lk-pager-h));
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: 0;
+}
+.lk-deck.lk-layout-side .lk-pager {
+  bottom: var(--lk-gap);
+  border-radius: 0 0 var(--lk-radius, 6px) var(--lk-radius, 6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+}
+.lk-deck.lk-layout-side[data-side="right"] .lk-slide__panel,
+.lk-deck.lk-layout-side[data-side="right"] .lk-pager { left: auto; right: var(--lk-gap); }
+.lk-deck.lk-layout-side[data-side="center"] .lk-slide__panel,
+.lk-deck.lk-layout-side[data-side="center"] .lk-pager { left: 50%; transform: translateX(-50%); width: min(560px, 80%); }
+.lk-deck.lk-layout-side[data-side="center"] .lk-slide.is-active .lk-slide__panel { animation: none; }
+/* Keep attribution and scale clear of a right-hand panel. */
+.lk-deck.lk-layout-side[data-side="right"] .maplibregl-ctrl-bottom-right { right: calc(var(--lk-pw) + var(--lk-gap) * 2); }
+
+/* Stack layout (narrow): map on top, panel as a bottom sheet, pager at the very bottom. */
+.lk-deck.lk-layout-stack .lk-slide__panel {
+  position: absolute;
   left: 0;
   right: 0;
-  transform: translateY(-50%);
+  bottom: var(--lk-pager-h);
+  max-height: 52%;
+  border-radius: var(--lk-radius, 6px) var(--lk-radius, 6px) 0 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.16);
+}
+.lk-deck.lk-layout-stack .lk-slide__body { padding: 1rem 1.1rem 1.1rem; }
+.lk-deck.lk-layout-stack .lk-pager { left: 0; right: 0; bottom: 0; border-left: 0; border-right: 0; }
+.lk-layout-stack .lk-tools { right: auto; left: var(--lk-gap); top: var(--lk-gap); }
+.lk-layout-stack .lk-overview { right: auto; left: var(--lk-gap); width: min(160px, 45%); }
+.lk-deck.lk-layout-stack .maplibregl-ctrl-bottom-right { top: 0; bottom: auto; }
+.lk-deck.lk-layout-stack .maplibregl-ctrl-bottom-right .maplibregl-ctrl { margin: 10px 10px 0 0; }
+
+/* ───────────── scroll mode (panels scroll past a pinned map) ───────────── */
+
+.lk-scroll .lk-pager { display: none; }
+.lk-scroll .lk-slide {
+  min-height: 85vh;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  padding: 10vh var(--lk-gap);
   pointer-events: none;
-  z-index: 3;
 }
-.lk-arrow {
-  pointer-events: auto;
-  width: 54px;
-  height: 92px;
-  border: none;
-  background: rgba(20, 20, 20, 0.55);
-  color: #fff;
-  font-size: 1.9rem;
-  line-height: 1;
-  cursor: pointer;
-  transition: background 0.15s ease;
-}
-.lk-arrow--prev { border-radius: 0 6px 6px 0; }
-.lk-arrow--next { border-radius: 6px 0 0 6px; }
-.lk-arrow:hover { background: rgba(20, 20, 20, 0.8); }
+.lk-scroll .lk-slide:first-child { padding-top: 30vh; }
+.lk-scroll .lk-slide:last-child { min-height: 100vh; }
+.lk-scroll .lk-slide__panel { width: var(--lk-pw); max-height: 80vh; opacity: 0.55; transition: opacity 0.3s; }
+.lk-scroll .lk-slide.is-active .lk-slide__panel { opacity: 1; }
+.lk-scroll.lk-layout-side .lk-slide--right { justify-content: flex-end; }
+.lk-scroll.lk-layout-side .lk-slide--center,
+.lk-scroll.lk-layout-side .lk-slide--full { justify-content: center; }
+.lk-scroll.lk-layout-side .lk-slide--center .lk-slide__panel,
+.lk-scroll.lk-layout-side .lk-slide--full .lk-slide__panel { width: min(560px, 80%); }
+.lk-scroll.lk-layout-stack .lk-slide { align-items: flex-end; padding: 50vh 10px 6vh; min-height: 90vh; }
+.lk-scroll.lk-layout-stack .lk-slide__panel { width: 100%; max-height: 45vh; }
 
-/* Top toolbar */
-.lk-toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  z-index: 4;
-}
-.lk-toolbar__btn {
-  border: none;
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(20, 20, 20, 0.78);
-  color: #fff;
-  font: 0.85rem/1 system-ui, sans-serif;
-  padding: 0.7rem 1rem;
-  cursor: pointer;
-}
-.lk-toolbar__btn:hover,
-.lk-toolbar__btn.is-active { background: var(--lk-accent); }
+/* Full page: the map sticks while the page scrolls past it (no position:fixed,
+   so the story sits in normal page flow with content above and below). */
+.lk-scroll:not(.lk-embed) .lk-map { position: sticky; top: 0; height: 100vh; height: 100dvh; z-index: 0; }
+.lk-scroll:not(.lk-embed) .lk-map .maplibregl-map { position: absolute; inset: 0; }
+.lk-scroll:not(.lk-embed) .lk-slides { margin-top: -100vh; margin-top: -100dvh; }
 
-/* Mini-map overview inset */
-.lk-overview {
-  position: fixed;
-  top: 44px;
-  left: 12px;
-  width: 220px;
-  height: 150px;
-  border: 3px solid #fff;
-  border-radius: 4px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  z-index: 4;
-}
-.lk-overview .maplibregl-map { position: absolute; inset: 0; }
+/* Embedded scroll story: the box scrolls its own panels over a fixed-in-box map. */
+.lk-embed.lk-scroll { overflow: hidden; }
+.lk-embed.lk-scroll .lk-map { position: absolute; inset: 0; }
+.lk-embed.lk-scroll .lk-slides { position: absolute; inset: 0; overflow-y: auto; scrollbar-width: thin; }
+.lk-embed.lk-scroll .lk-slide { min-height: 100%; padding-top: 8%; padding-bottom: 8%; }
+.lk-embed.lk-scroll .lk-slide:first-child { padding-top: 8%; }
 
-/* ─────────────────────────── embedded mode ───────────────────────────
-   Full-page stories position the map + chrome against the viewport (fixed).
-   When embedding inside a fixed-height box (e.g. a blog post), add .lk-embed
-   on the root: everything re-anchors to the box instead of the viewport. */
-.lk-embed { overflow: hidden; }
-.lk-embed .lk-map { position: absolute; }
-.lk-embed .lk-slides { position: absolute; inset: 0; pointer-events: none; }
-.lk-embed .lk-controls,
-.lk-embed .lk-toolbar,
-.lk-embed .lk-overview { position: absolute; }
-/* Deck panels fill the box height (not 100vh). */
-.lk-embed.lk-deck .lk-slide { min-height: 100%; height: 100%; }
-/* Scroll mode inside a box scrolls the slides layer, not the page. */
-.lk-embed:not(.lk-deck) .lk-slides { overflow-y: auto; pointer-events: auto; }
-.lk-embed:not(.lk-deck) .lk-slide { min-height: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  .lk-root *, .lk-root *::before, .lk-root *::after { animation: none !important; transition: none !important; }
+}
+
+/* Legend inside a panel */
+.lk-legend {
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0.7rem 0 0;
+  border-top: 1px solid var(--lk-border, rgba(0, 0, 0, 0.12));
+  display: grid;
+  gap: 0.35rem;
+  font: 0.8rem/1.3 var(--lk-ui-font, system-ui, sans-serif);
+  color: var(--lk-muted, #6b6860);
+}
+.lk-legend li { display: flex; align-items: center; gap: 0.55rem; }
+.lk-swatch { flex: none; display: inline-block; width: 18px; height: 12px; background: var(--lk-swatch); }
+.lk-swatch--fill { border: 1px solid rgba(0, 0, 0, 0.25); opacity: 0.85; }
+.lk-swatch--line { height: 3px; border-radius: 2px; }
+.lk-swatch--point { width: 11px; height: 11px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3); }

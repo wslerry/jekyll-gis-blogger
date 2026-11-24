@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }} · {{ site.title }}</title>
+  <style>
+    :root { --bg: #fbfaf7; --fg: #1d1d1b; --link: #b23b22; }
+    html[data-theme="dark"] { --bg: #181816; --fg: #ece7da; --link: #e98a63; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.65 Georgia, serif; }
+    header, main { max-width: 860px; margin: 0 auto; padding: 0 16px; }
+    header { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; }
+    a { color: var(--link); }
+    button { font: inherit; padding: 4px 12px; cursor: pointer; }
+    /* the story picks up the page colours through lungkui's variables */
+    html[data-theme="dark"] .lk-root { --lk-panel-bg: #22211e; --lk-text: #ece7da; --lk-muted: #a59f91; --lk-border: rgba(255,255,255,.14); --lk-accent: #e98a63; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <button type="button" onclick="var h=document.documentElement;h.dataset.theme=h.dataset.theme==='dark'?'light':'dark';this.textContent=h.dataset.theme==='dark'?'Light':'Dark'">Dark</button>
+  </header>
+  <main>
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+  </main>
+</body>
+</html>

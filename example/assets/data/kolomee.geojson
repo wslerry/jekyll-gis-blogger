@@ -1,0 +1,101 @@
+{
+  "type": "FeatureCollection",
+  "name": "borneo_kolomee_trail",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [113.9927, 4.3999] },
+      "properties": {
+        "overview": 1,
+        "order": 0,
+        "headline": "The Great Sarawak Kolo Mee Trail",
+        "text": "<p>A (completely fictional) culinary expedition across Borneo in search of the perfect bowl of <em>kolo mee</em>. Five towns, five legends, zero calories counted. Buckle up — the noodles are calling.</p>",
+        "media": "https://en.wikipedia.org/wiki/Kolo_mee",
+        "caption": "Warning: contains dramatised noodle facts.",
+        "credit": "Ministry of Imaginary Cuisine"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [110.3453, 1.5600] },
+      "properties": {
+        "order": 1,
+        "headline": "Kuching — The Origin Bowl",
+        "text": "<p>Legend says the very first bowl of kolo mee was tossed here at 3:47 a.m. by a cat who refused to sleep. Locals still leave out a saucer of char siu in tribute. The city's stray cats are rumoured to review hawker stalls with a strict five-whisker rating system.</p>",
+        "media": "https://en.wikipedia.org/wiki/Kuching",
+        "caption": "Cat City. Coincidence? The felines think not.",
+        "credit": "Whisker Times",
+        "name": "Kuching",
+        "zoom": 8,
+        "icon": "http://maps.gstatic.com/intl/en_us/mapfiles/ms/micons/blue-pushpin.png",
+        "line": 1,
+        "date": "1908-01-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [112.0866, 2.8968] },
+      "properties": {
+        "order": 2,
+        "headline": "Mukah — The Sago Detour",
+        "text": "<p>Our expedition briefly abandons noodles for <em>umai</em> and sago pearls. Scientists (imaginary ones) estimate that Mukah produces enough sago each year to build a bouncy castle the size of a small island. No one has tried. Yet.</p>",
+        "media": "https://en.wikipedia.org/wiki/Mukah",
+        "caption": "Sago: chewy, wobbly, structurally underrated.",
+        "credit": "Institute of Bouncy Studies",
+        "name": "Mukah",
+        "zoom": 8,
+        "icon": "http://maps.gstatic.com/intl/en_us/mapfiles/ms/micons/blue-pushpin.png",
+        "line": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [111.8307, 2.2883] },
+      "properties": {
+        "order": 3,
+        "headline": "Sibu — The Kampua Rivalry",
+        "text": "<p>Here the trail turns tense. Sibu insists its <em>kampua mee</em> is the true champion, not kolo mee. Diplomatic noodle summits are held nightly at the pasar. So far, the only treaty signed is that everyone orders a second bowl.</p>",
+        "media": "https://en.wikipedia.org/wiki/Sibu",
+        "caption": "Neutral ground: the shared chilli sauce bottle.",
+        "credit": "Council of Noodle Affairs",
+        "name": "Sibu",
+        "zoom": 8,
+        "icon": "http://maps.gstatic.com/intl/en_us/mapfiles/ms/micons/blue-pushpin.png",
+        "line": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [113.0429, 3.1716] },
+      "properties": {
+        "order": 4,
+        "headline": "Bintulu — Refuel at the Energy Town",
+        "text": "<p>Powered by natural gas and, apparently, unlimited belacan, Bintulu is where our travellers refuel — both the van and themselves. Local myth claims a bowl of noodles here gives you enough energy to walk to Miri. It does not. We checked.</p>",
+        "media": "https://en.wikipedia.org/wiki/Bintulu",
+        "caption": "Fuel gauge: full. Stomach gauge: fuller.",
+        "credit": "Department of Optimistic Distances",
+        "name": "Bintulu",
+        "zoom": 8,
+        "icon": "http://maps.gstatic.com/intl/en_us/mapfiles/ms/micons/blue-pushpin.png",
+        "line": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [113.9927, 4.3999] },
+      "properties": {
+        "order": 5,
+        "headline": "Miri — The Final Bowl",
+        "text": "<p>The trail ends where it began, in oil-town Miri, with a sunset, a seahorse mascot, and the biggest bowl of kolo mee anyone dared to order. Verdict after 1,200 km: they are all the best. This is the only scientifically imaginary conclusion possible.</p>",
+        "media": "https://en.wikipedia.org/wiki/Miri,_Malaysia",
+        "caption": "The Seahorse City approves this expedition.",
+        "credit": "Bureau of Happy Endings",
+        "name": "Miri",
+        "zoom": 8,
+        "icon": "http://maps.gstatic.com/intl/en_us/mapfiles/ms/micons/blue-pushpin.png",
+        "line": 1
+      }
+    }
+  ]
+}

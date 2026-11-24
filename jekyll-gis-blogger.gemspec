@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-gis-blogger"
-  spec.version       = "0.1.2"
+  spec.version       = "0.2.0"
   spec.authors       = ["Lerry William Seling"]
   spec.email         = ["wslerry@gmail.com"]
   spec.summary       = "Jekyll Liquid tags for GIS storytelling — maps, GPX tracks, StoryMapJS, lungkui.js, and sortable data tables"
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir[
     "lib/**/*.rb",
-    "lib/jekyll-gis-blogger/vendor/**/*.{js,css}",
+    "lib/jekyll-gis-blogger/vendor/**/*.{js,css,eot,ttf,woff,woff2,svg}",
     "LICENSE", "README.md"
   ]
 

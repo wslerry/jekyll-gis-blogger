@@ -1,0 +1,6 @@
+title: gis-blogger test stories
+description: Dummy stories to try the lungkui tag (deck, full page, areas, styles).
+plugins:
+  - jekyll-gis-blogger
+permalink: /:title/
+exclude: [Gemfile, Gemfile.lock, README.md]

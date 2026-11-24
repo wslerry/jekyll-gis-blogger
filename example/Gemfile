@@ -1,0 +1,4 @@
+# Test site for jekyll-gis-blogger: uses the gem from the folder above.
+source "https://rubygems.org"
+gem "jekyll", "~> 4.3"
+gem "jekyll-gis-blogger", path: ".."

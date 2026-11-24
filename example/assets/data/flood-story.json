@@ -1,0 +1,34 @@
+{
+  "mode": "deck",
+  "markers": "none",
+  "map": { "center": [110.35, 1.5], "zoom": 10 },
+  "layers": [
+    { "id": "flood", "type": "polygon", "source": { "geojson": "/assets/data/flood.geojson" },
+      "paint": { "fill-color": ["match", ["get", "zone"], "riverbank", "#1f5aa6", "lowland", "#4f8fd1", "#a8c8ea"], "fill-opacity": 0.6, "fill-outline-color": "#103a70" } }
+  ],
+  "slides": [
+    { "position": "full", "kicker": "Dummy data", "title": "The (made-up) flood of 2026",
+      "html": "<p>Three zones, three depths. None of this happened; it is here to test areas and legends.</p>",
+      "camera": { "fit": { "layer": "flood" } },
+      "legend": [
+        { "type": "fill", "color": "#1f5aa6", "label": "Riverbank, over 1 m" },
+        { "type": "fill", "color": "#4f8fd1", "label": "Lowland, 0.3 to 1 m" },
+        { "type": "fill", "color": "#a8c8ea", "label": "Suburb, under 0.3 m" }
+      ] },
+    { "kicker": "Zone 1", "title": "The riverbank goes under first",
+      "html": "<p>Deepest water, closest to the river.</p>",
+      "camera": { "fit": { "layer": "flood", "where": { "zone": "riverbank" } } },
+      "highlight": { "layer": "flood", "filter": ["==", ["get", "zone"], "riverbank"] },
+      "legend": [{ "type": "fill", "color": "#1f5aa6", "label": "Over 1 m" }] },
+    { "kicker": "Zone 2", "title": "Then the lowland",
+      "html": "<p>Wide and shallow.</p>",
+      "camera": { "fit": { "layer": "flood", "where": { "zone": "lowland" } } },
+      "highlight": { "layer": "flood", "filter": ["==", ["get", "zone"], "lowland"] },
+      "legend": [{ "type": "fill", "color": "#4f8fd1", "label": "0.3 to 1 m" }] },
+    { "position": "right", "kicker": "Zone 3", "title": "The suburb gets its feet wet",
+      "html": "<p>Ankle deep, panel on the right this time.</p>",
+      "camera": { "fit": { "layer": "flood", "where": { "zone": "suburb" } } },
+      "highlight": { "layer": "flood", "filter": ["==", ["get", "zone"], "suburb"] },
+      "legend": [{ "type": "fill", "color": "#a8c8ea", "label": "Under 0.3 m" }] }
+  ]
+}

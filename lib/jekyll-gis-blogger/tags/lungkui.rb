@@ -9,13 +9,15 @@ module Jekyll
         include Jekyll::GisBlogger::Utils
 
         DEFAULTS = {
-          "height"  => "600px",
-          "width"   => "100%",
-          "mode"    => "deck",
-          "zoom"    => "6",
-          "accent"  => "#e4572e",
-          "basemap" => "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+          "height" => "600px",
+          "width"  => "100%",
+          "mode"   => "deck",
+          "zoom"   => "6",
+          "panel"  => "left"
         }.freeze
+
+        # lungkui.js basemap presets; anything else is treated as an XYZ tile URL.
+        BASEMAP_PRESETS = %w[positron dark liberty bright fiord osm opentopo].freeze
 
         MAPLIBRE_CSS = "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css"
         MAPLIBRE_JS  = "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"
@@ -48,8 +50,14 @@ module Jekyll
 
           [
             assets,
-            %(<div id="#{div_id}" class="lk-root lk-embed" ) +
-              %(style="position:relative;width:#{width};height:#{height};"></div>),
+            # fullpage: a full-screen story in the page flow (sticky map, page scrolls);
+            # otherwise a fixed-height box inside the post.
+            if truthy(@attrs["fullpage"])
+              %(<div id="#{div_id}" class="lk-root"></div>)
+            else
+              %(<div id="#{div_id}" class="lk-root lk-embed" ) +
+                %(style="position:relative;width:#{width};height:#{height};"></div>)
+            end,
             %(<script type="module">),
             %(import { Lungkui } from '#{baseurl}/assets/gis-blogger/js/lungkui.js';),
             %(new Lungkui('##{div_id}', #{config_js});),
@@ -73,29 +81,33 @@ module Jekyll
         end
 
         def build_config(site, baseurl)
-          geojson_path = @attrs["geojson"]
-          slides = slides_from_geojson(read_source(site, geojson_path))
-
-          geojson_url = absolute?(geojson_path) ? geojson_path : "#{baseurl}#{geojson_path}"
+          slides = slides_from_geojson(read_source(site, @attrs["geojson"]))
           center = @attrs["center"] ? @attrs["center"].split(",").map(&:to_f) : default_center(slides)
-
-          {
-            "mode"  => @attrs["mode"] || DEFAULTS["mode"],
-            "map"   => {
-              "basemap" => { "type" => "xyz", "url" => (@attrs["basemap"] || DEFAULTS["basemap"]),
-                             "attribution" => "© OpenStreetMap contributors" },
-              "center"  => center,
-              "zoom"    => (@attrs["zoom"] || DEFAULTS["zoom"]).to_f
-            },
-            "theme" => { "accent" => (@attrs["accent"] || DEFAULTS["accent"]) },
-            "layers" => [{
-              "id" => "trail", "type" => "circle",
-              "source" => { "geojson" => geojson_url },
-              "paint"  => { "circle-radius" => 7, "circle-color" => "@accent",
-                            "circle-stroke-color" => "#fff", "circle-stroke-width" => 2 }
-            }],
-            "slides" => slides
+        
+          map = { "center" => center, "zoom" => (@attrs["zoom"] || DEFAULTS["zoom"]).to_f }
+          map["basemap"] = basemap_config(@attrs["basemap"]) if present?(@attrs["basemap"])
+        
+          config = {
+            "mode"      => @attrs["mode"] || DEFAULTS["mode"],
+            "map"       => map,
+            "layers"    => [],   # lungkui draws the numbered stops and the route itself
+            "route"     => @attrs.key?("route") ? truthy(@attrs["route"]) : true,
+            "panelSide" => @attrs["panel"] || DEFAULTS["panel"],
+            "slides"    => slides
           }
+          config["markers"] = @attrs["markers"] if present?(@attrs["markers"])
+          theme = {}
+          theme["preset"] = @attrs["theme"] if present?(@attrs["theme"])
+          theme["accent"] = @attrs["accent"] if present?(@attrs["accent"])
+          config["theme"] = theme unless theme.empty?
+          config
+        end
+        
+        # A lungkui preset name passes through; anything else is an XYZ tile URL.
+        def basemap_config(value)
+          return value if BASEMAP_PRESETS.include?(value)
+        
+          { "type" => "xyz", "url" => value, "attribution" => "© OpenStreetMap contributors" }
         end
 
         def slides_from_geojson(text)
@@ -133,11 +145,10 @@ module Jekyll
 
           slide = {
             "id"       => "s#{pos}",
-            "position" => overview ? "full" : (pos.odd? ? "left" : "right"),
+            "position" => overview ? "full" : (@attrs["panel"] || DEFAULTS["panel"]),
             "title"    => props["headline"].to_s,
             "html"     => html,
-            "camera"   => { "center" => [lon, lat], "zoom" => zoom, "pitch" => overview ? 0 : 40 },
-            "show"     => ["trail"]
+            "camera"   => overview ? { "center" => [lon, lat], "fit" => true } : { "center" => [lon, lat], "zoom" => zoom, "pitch" => (@attrs["pitch"] || 0).to_f }
           }
           slide["media"] = media_block if media_block
           slide

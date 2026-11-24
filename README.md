@@ -105,9 +105,28 @@ Nothing to copy by hand.
 {% lungkui config="/assets/datasets/my_story.lungkui.json" %}
 ```
 
-Options: `height="600px" width="100%" mode="deck"|"scroll" center="113.9,3.5" zoom="6" accent="#e4572e" basemap="..."`
+Options (all optional):
 
-Mode `deck` (default) uses arrow keys/click — no page scroll needed. Mode `scroll` drives the map from page scroll position.
+| Option | Default | Meaning |
+|---|---|---|
+| `mode` | `deck` | `deck`: one slide at a time (pager, arrow keys when focused, swipe). `scroll`: the reader scrolls through the panels |
+| `fullpage` | off | `true`: a full-screen story in the page flow (sticky map) instead of a fixed-height box |
+| `height`, `width` | `600px`, `100%` | size of the box (ignored with `fullpage`) |
+| `basemap` | follows the page theme (OpenFreeMap positron/dark) | a lungkui preset (`positron`, `dark`, `liberty`, `bright`, `fiord`, `osm`, `opentopo`) or an XYZ tile URL |
+| `theme` | page CSS | `light`, `dark` or `paper` |
+| `accent` | theme | accent colour |
+| `panel` | `left` | side the panel docks to on wide screens |
+| `route` | `true` | dashed line joining the stops in order |
+| `markers` | `numbered` | `numbered`, `dot` or `none` |
+| `pitch` | `0` | camera tilt for the stops |
+| `center`, `zoom` | first slide | initial view |
+
+Narrower than 720px, the panel becomes a bottom sheet under the map. The overview
+slide (`overview: 1`) frames every stop. For areas, legends and data layers, write a
+lungkui config JSON and use `config=`. A site can theme stories with CSS variables
+on `.lk-root` (`--lk-accent`, `--lk-panel-bg`, `--lk-text`, `--lk-font`, ...).
+
+Try every variant in the bundled test site: see `example/README.md`.
 
 #### Authoring schema
 
