@@ -35,6 +35,7 @@ out('choropleth-story.json', {
       html: '<p>Rates per area belong in a <strong>choropleth</strong>: classed colours (natural breaks here), light to dark, grey for no data. Never raw totals, or big districts look worse just for being big.</p>' },
     { kicker: 'Hotspot', title: 'The riskiest district', camera: { fit: { layer: 'districts', where: { id: worst } } }, legend: ['districts'],
       highlight: { layer: 'districts', filter: ['==', ['get', 'id'], worst] },
+      chart: { title: 'Five riskiest districts', layer: 'districts', property: 'risk', top: 5, unit: '%', highlight: districts.find((d) => d.properties.id === worst).properties.name, source: 'made-up data' },
       html: '<p>Filtered to one district. The classes stay the same, so the colour keeps its meaning.</p>' }
   ]
 });
@@ -52,6 +53,7 @@ out('proportional-story.json', {
     { position: 'full', kicker: 'Proportional symbols', title: 'How big is each town?', camera: { fit: { layer: 'towns' } }, legend: ['towns'],
       html: '<p>Totals at places: circle <strong>area</strong> grows with the value (square-root scaling), so a town twice the size gets a circle twice the area, not twice the width. Big circles sit under small ones.</p>' },
     { kicker: 'Largest', title: 'Kuching', camera: { center: [110.35, 1.55], zoom: 8 }, stop: false, legend: ['towns'],
+      chart: { title: 'Population (dummy)', layer: 'towns', property: 'pop', top: 4, highlight: 'Kuching' },
       html: '<p>The legend sizes match the map exactly.</p>' }
   ]
 });
@@ -92,7 +94,8 @@ out('coffee-story.json', {
     { position: 'full', kicker: 'Flows + categories', title: 'From farm to cup', camera: { fit: { layer: 'sites' } }, legend: ['sites', 'flows'],
       html: '<p>A made-up supply chain: four highland farms send beans to one roastery, which supplies four cafes. Line width is the tonnage.</p>' },
     { kicker: 'Stage 1', title: 'Beans leave the highlands', camera: { fit: { layer: 'flows', where: { stage: 'beans' } } }, legend: ['flows'],
-      highlight: { layer: 'flows', filter: ['==', ['get', 'stage'], 'beans'] }, html: '<p>Highland farm A grows half the coffee.</p>' },
+      highlight: { layer: 'flows', filter: ['==', ['get', 'stage'], 'beans'] }, html: '<p>Highland farm A grows half the coffee.</p>',
+      chart: { title: 'Beans per farm', unit: 't', highlight: 'Highland farm A', data: farms.map(([label, , , value]) => ({ label, value })) } },
     { kicker: 'Stage 2', title: 'Roasted, then shipped out', camera: { fit: { layer: 'flows', where: { stage: 'roasted' } } }, legend: ['flows'],
       highlight: { layer: 'flows', filter: ['==', ['get', 'stage'], 'roasted'] }, html: '<p>Kuching drinks the most, even from the farthest away.</p>' }
   ]

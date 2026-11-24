@@ -89,7 +89,30 @@
      "beans"
     ]
    },
-   "html": "<p>Highland farm A grows half the coffee.</p>"
+   "html": "<p>Highland farm A grows half the coffee.</p>",
+   "chart": {
+    "title": "Beans per farm",
+    "unit": "t",
+    "highlight": "Highland farm A",
+    "data": [
+     {
+      "label": "Highland farm A",
+      "value": 42
+     },
+     {
+      "label": "Highland farm B",
+      "value": 25
+     },
+     {
+      "label": "Valley farm C",
+      "value": 14
+     },
+     {
+      "label": "Ridge farm D",
+      "value": 8
+     }
+    ]
+   }
   },
   {
    "kicker": "Stage 2",

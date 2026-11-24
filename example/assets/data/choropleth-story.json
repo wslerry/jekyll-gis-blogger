@@ -66,6 +66,15 @@
      "D04"
     ]
    },
+   "chart": {
+    "title": "Five riskiest districts",
+    "layer": "districts",
+    "property": "risk",
+    "top": 5,
+    "unit": "%",
+    "highlight": "District A5",
+    "source": "made-up data"
+   },
    "html": "<p>Filtered to one district. The classes stay the same, so the colour keeps its meaning.</p>"
   }
  ]

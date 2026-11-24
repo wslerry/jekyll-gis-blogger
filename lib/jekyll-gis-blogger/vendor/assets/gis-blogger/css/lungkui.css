@@ -297,3 +297,11 @@
   font: 0.82rem/1.4 var(--lk-ui-font, system-ui, sans-serif);
 }
 .lk-root .lk-tooltip .maplibregl-popup-tip { display: none; }
+
+/* Charts in panels */
+.lk-chart { margin: 1rem 0 0.4rem; padding-top: 0.8rem; border-top: 1px solid var(--lk-border, rgba(0, 0, 0, 0.12)); }
+.lk-chart figcaption { margin: 0 0 0.5rem; font: 600 0.82rem/1.3 var(--lk-ui-font, system-ui, sans-serif); color: var(--lk-text, #1d1d1b); }
+.lk-chart svg { display: block; overflow: visible; }
+.lk-chart text { font: 11px var(--lk-ui-font, system-ui, sans-serif); fill: var(--lk-muted, #6b6860); }
+.lk-chart .lk-chart__label { fill: var(--lk-text, #1d1d1b); }
+.lk-chart__source { margin: 0.4rem 0 0; font: 0.72rem/1.3 var(--lk-ui-font, system-ui, sans-serif); color: var(--lk-muted, #6b6860); }

@@ -52,6 +52,13 @@
    "legend": [
     "towns"
    ],
+   "chart": {
+    "title": "Population (dummy)",
+    "layer": "towns",
+    "property": "pop",
+    "top": 4,
+    "highlight": "Kuching"
+   },
    "html": "<p>The legend sizes match the map exactly.</p>"
   }
  ]
