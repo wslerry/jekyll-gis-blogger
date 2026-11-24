@@ -15,8 +15,10 @@ module Jekyll
 
       # dir (URL path, mirrored on disk under VENDOR_ROOT) => filenames
       FILES = {
-        "/assets/gis-blogger/js"  => %w[storymap-min.js lungkui.js],
-        "/assets/gis-blogger/css" => %w[storymap.css lungkui.css]
+        "/assets/gis-blogger/js"        => %w[storymap-min.js lungkui.js],
+        "/assets/gis-blogger/css"       => %w[storymap.css lungkui.css],
+        # vco-icons webfont referenced by storymap.css @font-face (../css/icons/)
+        "/assets/gis-blogger/css/icons" => %w[vco-icons.eot vco-icons.ttf vco-icons.woff vco-icons.woff2 vco-icons.svg]
       }.freeze
 
       # ponytail: always copies all four (~370KB) even if a page uses none —
