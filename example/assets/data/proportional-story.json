@@ -1,0 +1,58 @@
+{
+ "mode": "deck",
+ "markers": "none",
+ "map": {
+  "center": [
+   112.6,
+   3
+  ],
+  "zoom": 6
+ },
+ "layers": [
+  {
+   "id": "towns",
+   "type": "point",
+   "source": {
+    "geojson": "/assets/data/towns.geojson"
+   },
+   "style": {
+    "kind": "proportional",
+    "property": "pop",
+    "maxRadius": 34,
+    "title": "Population (dummy)"
+   }
+  }
+ ],
+ "slides": [
+  {
+   "position": "full",
+   "kicker": "Proportional symbols",
+   "title": "How big is each town?",
+   "camera": {
+    "fit": {
+     "layer": "towns"
+    }
+   },
+   "legend": [
+    "towns"
+   ],
+   "html": "<p>Totals at places: circle <strong>area</strong> grows with the value (square-root scaling), so a town twice the size gets a circle twice the area, not twice the width. Big circles sit under small ones.</p>"
+  },
+  {
+   "kicker": "Largest",
+   "title": "Kuching",
+   "camera": {
+    "center": [
+     110.35,
+     1.55
+    ],
+    "zoom": 8
+   },
+   "stop": false,
+   "legend": [
+    "towns"
+   ],
+   "html": "<p>The legend sizes match the map exactly.</p>"
+  }
+ ]
+}

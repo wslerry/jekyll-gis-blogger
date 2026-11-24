@@ -1,0 +1,67 @@
+{
+ "mode": "deck",
+ "markers": "none",
+ "map": {
+  "center": [
+   113.2,
+   2.4
+  ],
+  "zoom": 7
+ },
+ "layers": [
+  {
+   "id": "tonnes",
+   "type": "polygon",
+   "source": {
+    "geojson": "/assets/data/districts.geojson"
+   },
+   "style": {
+    "kind": "extrusion",
+    "property": "tonnes",
+    "heightScale": 8,
+    "classes": 4,
+    "method": "quantile",
+    "unit": "t",
+    "title": "Harvest (dummy)"
+   }
+  }
+ ],
+ "slides": [
+  {
+   "position": "full",
+   "kicker": "3D extrusion",
+   "title": "The harvest as a skyline",
+   "camera": {
+    "center": [
+     113.2,
+     2.1
+    ],
+    "zoom": 7.2,
+    "pitch": 55,
+    "bearing": -20
+   },
+   "stop": false,
+   "legend": [
+    "tonnes"
+   ],
+   "html": "<p>Height and colour both show the tonnes. Eye-catching, but height hides what is behind it: use it for a headline view, then go flat.</p>"
+  },
+  {
+   "kicker": "Flat again",
+   "title": "Same data, top-down",
+   "camera": {
+    "center": [
+     113.2,
+     2.4
+    ],
+    "zoom": 7,
+    "pitch": 0
+   },
+   "stop": false,
+   "legend": [
+    "tonnes"
+   ],
+   "html": "<p>Readable, comparable, honest.</p>"
+  }
+ ]
+}

@@ -1,0 +1,58 @@
+{
+ "mode": "deck",
+ "markers": "none",
+ "map": {
+  "center": [
+   113.3,
+   2.8
+  ],
+  "zoom": 7
+ },
+ "layers": [
+  {
+   "id": "fires",
+   "type": "point",
+   "source": {
+    "geojson": "/assets/data/hotspots.geojson"
+   },
+   "style": {
+    "kind": "heatmap",
+    "property": "frp",
+    "radius": 14,
+    "title": "Fire hotspots (dummy)"
+   }
+  }
+ ],
+ "slides": [
+  {
+   "position": "full",
+   "kicker": "Heatmap",
+   "title": "Where the fires burn",
+   "camera": {
+    "fit": {
+     "layer": "fires"
+    }
+   },
+   "legend": [
+    "fires"
+   ],
+   "html": "<p>Hundreds of hotspot points become a density surface, weighted by fire radiative power. Good for many events; bad for exact counts.</p>"
+  },
+  {
+   "kicker": "Main cluster",
+   "title": "The biggest burn",
+   "camera": {
+    "center": [
+     113.3,
+     2.6
+    ],
+    "zoom": 9
+   },
+   "stop": false,
+   "legend": [
+    "fires"
+   ],
+   "html": "<p>Zoom in and the surface follows: the radius grows with zoom.</p>"
+  }
+ ]
+}

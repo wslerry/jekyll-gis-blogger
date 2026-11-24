@@ -1,0 +1,140 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Highland farm A",
+    "role": "farm",
+    "tonnes": 42
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     115.45,
+     3.73
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Highland farm B",
+    "role": "farm",
+    "tonnes": 25
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     115.6,
+     3.5
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Valley farm C",
+    "role": "farm",
+    "tonnes": 14
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114.8,
+     3.1
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Ridge farm D",
+    "role": "farm",
+    "tonnes": 8
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     115.2,
+     4
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Roastery",
+    "role": "roastery",
+    "tonnes": 89
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.99,
+     4.4
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Cafe Kuching",
+    "role": "cafe",
+    "tonnes": 30
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     110.35,
+     1.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Cafe Sibu",
+    "role": "cafe",
+    "tonnes": 18
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.83,
+     2.29
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Cafe Bintulu",
+    "role": "cafe",
+    "tonnes": 12
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.04,
+     3.17
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Cafe Miri",
+    "role": "cafe",
+    "tonnes": 22
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     114,
+     4.39
+    ]
+   }
+  }
+ ]
+}

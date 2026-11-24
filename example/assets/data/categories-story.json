@@ -1,0 +1,69 @@
+{
+ "mode": "deck",
+ "markers": "none",
+ "map": {
+  "center": [
+   112.5,
+   2.2
+  ],
+  "zoom": 7
+ },
+ "layers": [
+  {
+   "id": "sightings",
+   "type": "point",
+   "source": {
+    "geojson": "/assets/data/sightings.geojson"
+   },
+   "style": {
+    "kind": "categories",
+    "property": "species",
+    "palette": "set2",
+    "title": "Sightings (dummy)"
+   }
+  }
+ ],
+ "slides": [
+  {
+   "position": "full",
+   "kicker": "Categories",
+   "title": "Who was seen where",
+   "camera": {
+    "fit": {
+     "layer": "sightings"
+    }
+   },
+   "legend": [
+    "sightings"
+   ],
+   "html": "<p>Kinds, not amounts: a qualitative palette where no colour looks bigger than another.</p>"
+  },
+  {
+   "kicker": "Filter",
+   "title": "Only the leopards",
+   "camera": {
+    "fit": {
+     "layer": "sightings",
+     "where": {
+      "species": "Clouded leopard"
+     }
+    }
+   },
+   "legend": [
+    "sightings"
+   ],
+   "highlight": {
+    "layer": "sightings",
+    "filter": [
+     "==",
+     [
+      "get",
+      "species"
+     ],
+     "Clouded leopard"
+    ]
+   },
+   "html": "<p>Rare ones, so a filter beats squinting.</p>"
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "mode": "deck",
+ "markers": "none",
+ "map": {
+  "basemap": "opentopo",
+  "center": [
+   115.5,
+   3.75
+  ],
+  "zoom": 11
+ },
+ "layers": [
+  {
+   "id": "hike",
+   "type": "line",
+   "source": {
+    "geojson": "/assets/data/hike.geojson"
+   },
+   "style": {
+    "kind": "track",
+    "width": 3,
+    "legendLabel": "Ridge walk"
+   }
+  }
+ ],
+ "slides": [
+  {
+   "position": "full",
+   "kicker": "Track",
+   "title": "A day on the ridge",
+   "camera": {
+    "fit": {
+     "layer": "hike"
+    }
+   },
+   "legend": [
+    "hike"
+   ],
+   "html": "<p>A recorded path as a cased line: readable on any basemap, here a topographic one.</p>"
+  }
+ ]
+}

@@ -1,0 +1,785 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.0039,
+     2.1086
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.3174,
+     1.5813
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.7029,
+     1.8046
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.5905,
+     2.8097
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.2848,
+     1.7996
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.6904,
+     2.8838
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.5054,
+     2.0652
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.5852,
+     2.9045
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.4214,
+     1.9071
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.3071,
+     1.4237
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.7114,
+     1.3895
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.7352,
+     1.4879
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.6974,
+     2.6861
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.6609,
+     1.6542
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.1722,
+     2.9863
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.5408,
+     1.7278
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.0093,
+     2.6882
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.9651,
+     2.8864
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.9484,
+     1.4974
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Clouded leopard"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.7411,
+     1.4031
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Clouded leopard"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.7921,
+     1.3002
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Clouded leopard"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.5253,
+     1.5766
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.2644,
+     1.5408
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Clouded leopard"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.9426,
+     2.4374
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.2446,
+     3.078
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.4255,
+     2.7275
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.9534,
+     1.9782
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.5954,
+     2.8703
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.4008,
+     1.797
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.2102,
+     1.5633
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.9674,
+     1.4534
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.3283,
+     1.9511
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.8451,
+     1.791
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.6991,
+     1.4884
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Clouded leopard"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.3711,
+     1.9996
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.9008,
+     2.6888
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.9164,
+     1.4013
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.1164,
+     1.5873
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Clouded leopard"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.6939,
+     2.3612
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.8817,
+     2.0432
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.9006,
+     2.4081
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Clouded leopard"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.7714,
+     2.5771
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.1608,
+     1.9277
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.6145,
+     2.5906
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.3554,
+     1.7661
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.3729,
+     1.3711
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.174,
+     2.4264
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.8773,
+     2.5495
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.7665,
+     1.6163
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.1131,
+     2.4626
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Clouded leopard"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.4676,
+     2.1706
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Clouded leopard"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.8989,
+     2.5006
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Clouded leopard"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.3817,
+     1.9946
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.7042,
+     2.7884
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.4075,
+     1.5107
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.4378,
+     2.7839
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Proboscis monkey"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.1188,
+     2.3119
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Clouded leopard"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.6034,
+     2.5824
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Orangutan"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.5566,
+     2.5841
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "species": "Hornbill"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.2859,
+     2.01
+    ]
+   }
+  }
+ ]
+}

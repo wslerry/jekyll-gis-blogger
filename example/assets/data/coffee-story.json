@@ -1,0 +1,121 @@
+{
+ "mode": "deck",
+ "markers": "none",
+ "map": {
+  "center": [
+   113,
+   3
+  ],
+  "zoom": 6
+ },
+ "layers": [
+  {
+   "id": "flows",
+   "type": "line",
+   "source": {
+    "geojson": "/assets/data/coffee-flows.geojson"
+   },
+   "style": {
+    "kind": "flows",
+    "property": "tonnes",
+    "maxWidth": 12,
+    "unit": "t",
+    "title": "Coffee moved"
+   }
+  },
+  {
+   "id": "sites",
+   "type": "point",
+   "source": {
+    "geojson": "/assets/data/coffee-sites.geojson"
+   },
+   "style": {
+    "kind": "categories",
+    "property": "role",
+    "palette": "dark2",
+    "order": [
+     "farm",
+     "roastery",
+     "cafe"
+    ],
+    "labels": {
+     "farm": "Farm",
+     "roastery": "Roastery",
+     "cafe": "Cafe"
+    },
+    "title": "Who"
+   }
+  }
+ ],
+ "slides": [
+  {
+   "position": "full",
+   "kicker": "Flows + categories",
+   "title": "From farm to cup",
+   "camera": {
+    "fit": {
+     "layer": "sites"
+    }
+   },
+   "legend": [
+    "sites",
+    "flows"
+   ],
+   "html": "<p>A made-up supply chain: four highland farms send beans to one roastery, which supplies four cafes. Line width is the tonnage.</p>"
+  },
+  {
+   "kicker": "Stage 1",
+   "title": "Beans leave the highlands",
+   "camera": {
+    "fit": {
+     "layer": "flows",
+     "where": {
+      "stage": "beans"
+     }
+    }
+   },
+   "legend": [
+    "flows"
+   ],
+   "highlight": {
+    "layer": "flows",
+    "filter": [
+     "==",
+     [
+      "get",
+      "stage"
+     ],
+     "beans"
+    ]
+   },
+   "html": "<p>Highland farm A grows half the coffee.</p>"
+  },
+  {
+   "kicker": "Stage 2",
+   "title": "Roasted, then shipped out",
+   "camera": {
+    "fit": {
+     "layer": "flows",
+     "where": {
+      "stage": "roasted"
+     }
+    }
+   },
+   "legend": [
+    "flows"
+   ],
+   "highlight": {
+    "layer": "flows",
+    "filter": [
+     "==",
+     [
+      "get",
+      "stage"
+     ],
+     "roasted"
+    ]
+   },
+   "html": "<p>Kuching drinks the most, even from the farthest away.</p>"
+  }
+ ]
+}

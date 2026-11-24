@@ -126,7 +126,11 @@ slide (`overview: 1`) frames every stop. For areas, legends and data layers, wri
 lungkui config JSON and use `config=`. A site can theme stories with CSS variables
 on `.lk-root` (`--lk-accent`, `--lk-panel-bg`, `--lk-text`, `--lk-font`, ...).
 
-Try every variant in the bundled test site: see `example/README.md`.
+Data layers in a `config=` JSON can use lungkui thematic styles (choropleth,
+proportional symbols, categories, heatmap, flows, 3D extrusion, track) with
+auto-legends; see the lungkui README.
+
+Try every variant in the bundled test site (12 example stories): see `example/README.md`.
 
 #### Authoring schema
 

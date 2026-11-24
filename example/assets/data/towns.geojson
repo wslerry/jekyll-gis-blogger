@@ -1,0 +1,117 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Kuching",
+    "pop": 570000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     110.35,
+     1.55
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Sibu",
+    "pop": 250000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.83,
+     2.29
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Miri",
+    "pop": 300000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.99,
+     4.4
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Bintulu",
+    "pop": 210000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     113.04,
+     3.17
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Sri Aman",
+    "pop": 60000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     111.46,
+     1.24
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Kapit",
+    "pop": 25000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.94,
+     2.02
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Mukah",
+    "pop": 45000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     112.09,
+     2.9
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "Limbang",
+    "pop": 50000
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     115,
+     4.75
+    ]
+   }
+  }
+ ]
+}

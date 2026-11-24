@@ -1,0 +1,869 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D00",
+    "name": "District A1",
+    "risk": 38.9,
+    "tonnes": 2657
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       111.6,
+       1.4
+      ],
+      [
+       112.15,
+       1.4
+      ],
+      [
+       112.15,
+       1.9
+      ],
+      [
+       111.6,
+       1.9
+      ],
+      [
+       111.6,
+       1.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D01",
+    "name": "District A2",
+    "risk": 7,
+    "tonnes": 4268
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       112.15,
+       1.4
+      ],
+      [
+       112.7,
+       1.4
+      ],
+      [
+       112.7,
+       1.9
+      ],
+      [
+       112.15,
+       1.9
+      ],
+      [
+       112.15,
+       1.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D02",
+    "name": "District A3",
+    "risk": 66.2,
+    "tonnes": 1237
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       112.7,
+       1.4
+      ],
+      [
+       113.25,
+       1.4
+      ],
+      [
+       113.25,
+       1.9
+      ],
+      [
+       112.7,
+       1.9
+      ],
+      [
+       112.7,
+       1.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D03",
+    "name": "District A4",
+    "risk": 12.2,
+    "tonnes": 2128
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       113.25,
+       1.4
+      ],
+      [
+       113.8,
+       1.4
+      ],
+      [
+       113.8,
+       1.9
+      ],
+      [
+       113.25,
+       1.9
+      ],
+      [
+       113.25,
+       1.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D04",
+    "name": "District A5",
+    "risk": 68.5,
+    "tonnes": 3239
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       113.8,
+       1.4
+      ],
+      [
+       114.35,
+       1.4
+      ],
+      [
+       114.35,
+       1.9
+      ],
+      [
+       113.8,
+       1.9
+      ],
+      [
+       113.8,
+       1.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D05",
+    "name": "District A6",
+    "risk": 34.4,
+    "tonnes": 323
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       114.35,
+       1.4
+      ],
+      [
+       114.9,
+       1.4
+      ],
+      [
+       114.9,
+       1.9
+      ],
+      [
+       114.35,
+       1.9
+      ],
+      [
+       114.35,
+       1.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D10",
+    "name": "District B1",
+    "risk": 21.3,
+    "tonnes": 3862
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       111.6,
+       1.9
+      ],
+      [
+       112.15,
+       1.9
+      ],
+      [
+       112.15,
+       2.4
+      ],
+      [
+       111.6,
+       2.4
+      ],
+      [
+       111.6,
+       1.9
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D11",
+    "name": "District B2",
+    "risk": 14.8,
+    "tonnes": 3316
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       112.15,
+       1.9
+      ],
+      [
+       112.7,
+       1.9
+      ],
+      [
+       112.7,
+       2.4
+      ],
+      [
+       112.15,
+       2.4
+      ],
+      [
+       112.15,
+       1.9
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D12",
+    "name": "District B3",
+    "risk": 16.1,
+    "tonnes": 3602
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       112.7,
+       1.9
+      ],
+      [
+       113.25,
+       1.9
+      ],
+      [
+       113.25,
+       2.4
+      ],
+      [
+       112.7,
+       2.4
+      ],
+      [
+       112.7,
+       1.9
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D13",
+    "name": "District B4",
+    "risk": 13.2,
+    "tonnes": 4679
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       113.25,
+       1.9
+      ],
+      [
+       113.8,
+       1.9
+      ],
+      [
+       113.8,
+       2.4
+      ],
+      [
+       113.25,
+       2.4
+      ],
+      [
+       113.25,
+       1.9
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D14",
+    "name": "District B5",
+    "risk": 40.1,
+    "tonnes": 2134
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       113.8,
+       1.9
+      ],
+      [
+       114.35,
+       1.9
+      ],
+      [
+       114.35,
+       2.4
+      ],
+      [
+       113.8,
+       2.4
+      ],
+      [
+       113.8,
+       1.9
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D15",
+    "name": "District B6",
+    "risk": 9.7,
+    "tonnes": 3261
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       114.35,
+       1.9
+      ],
+      [
+       114.9,
+       1.9
+      ],
+      [
+       114.9,
+       2.4
+      ],
+      [
+       114.35,
+       2.4
+      ],
+      [
+       114.35,
+       1.9
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D20",
+    "name": "District C1",
+    "risk": 40.8,
+    "tonnes": 2507
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       111.6,
+       2.4
+      ],
+      [
+       112.15,
+       2.4
+      ],
+      [
+       112.15,
+       2.9
+      ],
+      [
+       111.6,
+       2.9
+      ],
+      [
+       111.6,
+       2.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D21",
+    "name": "District C2",
+    "risk": 29.8,
+    "tonnes": 4526
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       112.15,
+       2.4
+      ],
+      [
+       112.7,
+       2.4
+      ],
+      [
+       112.7,
+       2.9
+      ],
+      [
+       112.15,
+       2.9
+      ],
+      [
+       112.15,
+       2.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D22",
+    "name": "District C3",
+    "risk": 11.6,
+    "tonnes": 867
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       112.7,
+       2.4
+      ],
+      [
+       113.25,
+       2.4
+      ],
+      [
+       113.25,
+       2.9
+      ],
+      [
+       112.7,
+       2.9
+      ],
+      [
+       112.7,
+       2.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D23",
+    "name": "District C4",
+    "risk": 8,
+    "tonnes": 2040
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       113.25,
+       2.4
+      ],
+      [
+       113.8,
+       2.4
+      ],
+      [
+       113.8,
+       2.9
+      ],
+      [
+       113.25,
+       2.9
+      ],
+      [
+       113.25,
+       2.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D24",
+    "name": "District C5",
+    "risk": 39.5,
+    "tonnes": 460
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       113.8,
+       2.4
+      ],
+      [
+       114.35,
+       2.4
+      ],
+      [
+       114.35,
+       2.9
+      ],
+      [
+       113.8,
+       2.9
+      ],
+      [
+       113.8,
+       2.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D25",
+    "name": "District C6",
+    "risk": 25.5,
+    "tonnes": 2488
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       114.35,
+       2.4
+      ],
+      [
+       114.9,
+       2.4
+      ],
+      [
+       114.9,
+       2.9
+      ],
+      [
+       114.35,
+       2.9
+      ],
+      [
+       114.35,
+       2.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D30",
+    "name": "District D1",
+    "risk": 19.6,
+    "tonnes": 3495
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       111.6,
+       2.9
+      ],
+      [
+       112.15,
+       2.9
+      ],
+      [
+       112.15,
+       3.4
+      ],
+      [
+       111.6,
+       3.4
+      ],
+      [
+       111.6,
+       2.9
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D31",
+    "name": "District D2",
+    "risk": 32,
+    "tonnes": 378
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       112.15,
+       2.9
+      ],
+      [
+       112.7,
+       2.9
+      ],
+      [
+       112.7,
+       3.4
+      ],
+      [
+       112.15,
+       3.4
+      ],
+      [
+       112.15,
+       2.9
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D32",
+    "name": "District D3",
+    "risk": 33.4,
+    "tonnes": 2841
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       112.7,
+       2.9
+      ],
+      [
+       113.25,
+       2.9
+      ],
+      [
+       113.25,
+       3.4
+      ],
+      [
+       112.7,
+       3.4
+      ],
+      [
+       112.7,
+       2.9
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D33",
+    "name": "District D4",
+    "risk": 23.3,
+    "tonnes": 1827
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       113.25,
+       2.9
+      ],
+      [
+       113.8,
+       2.9
+      ],
+      [
+       113.8,
+       3.4
+      ],
+      [
+       113.25,
+       3.4
+      ],
+      [
+       113.25,
+       2.9
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D34",
+    "name": "District D5",
+    "risk": 14,
+    "tonnes": 1544
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       113.8,
+       2.9
+      ],
+      [
+       114.35,
+       2.9
+      ],
+      [
+       114.35,
+       3.4
+      ],
+      [
+       113.8,
+       3.4
+      ],
+      [
+       113.8,
+       2.9
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "D35",
+    "name": "District D6",
+    "risk": null,
+    "tonnes": 582
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       114.35,
+       2.9
+      ],
+      [
+       114.9,
+       2.9
+      ],
+      [
+       114.9,
+       3.4
+      ],
+      [
+       114.35,
+       3.4
+      ],
+      [
+       114.35,
+       2.9
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}
